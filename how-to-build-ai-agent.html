@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Build an AI Agent — Good Plans</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #F7F8F3; font-family: -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; color: #333333; }
+  .page { max-width: 900px; margin: 0 auto; padding: 3rem 3rem 5rem; }
+  .page-icon { font-size: 52px; display: block; margin-bottom: 0.75rem; }
+  .page-title { font-size: 40px; font-weight: 700; color: #333333; letter-spacing: -0.5px; }
+  .page-sub { font-size: 14px; color: #999; margin-top: 0.4rem; }
+  .divider { border: none; border-top: 1.5px solid #EDEFE6; margin: 1.75rem 0; }
+  .section-label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #999; margin-bottom: 1rem; }
+
+  /* Step cards — all consistently #EDEFE6 */
+  .flow-grid { display: grid; gap: 12px; margin-bottom: 12px; }
+  .flow-grid-3 { grid-template-columns: 1fr 1fr 1fr; }
+  .flow-grid-2 { grid-template-columns: 1fr 1fr; }
+  .step-card { background: #EDEFE6; border-radius: 10px; padding: 1.1rem 1.25rem; }
+  .step-num { font-size: 10px; font-weight: 700; color: #aaa; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 5px; }
+  .step-title { font-size: 14px; font-weight: 700; color: #333333; margin-bottom: 10px; }
+  .step-items { display: flex; flex-wrap: wrap; gap: 6px; }
+
+  /* Pink on the step item tags — the functional highlight */
+  .step-item { font-size: 11px; background: #FFBCEC; border-radius: 5px; padding: 3px 8px; color: #7a2f5a; font-weight: 500; }
+
+  /* Table */
+  .table-section { margin-top: 2rem; }
+  table { width: 100%; border-collapse: collapse; font-size: 12.5px; border: 2px solid #FFBCEC; border-radius: 10px; overflow: hidden; }
+  thead th { background: #EDEFE6; color: #333333; font-weight: 700; text-align: left; padding: 9px 11px; font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; border-bottom: 2px solid #FFBCEC; }
+  td { padding: 8px 11px; color: #333333; border-bottom: 1px solid #EDEFE6; vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+
+  .cat-cell { background: #EDEFE6; border-right: 2px solid #FFBCEC; width: 28px; text-align: center; }
+  .cat-label { writing-mode: vertical-rl; text-orientation: mixed; transform: rotate(180deg); font-size: 9px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: #888; white-space: nowrap; }
+
+  .badge { display: inline-block; font-size: 10px; padding: 2px 8px; border-radius: 4px; font-weight: 600; white-space: nowrap; }
+  .badge-cloud { background: #FFBCEC; color: #7a2f5a; }
+  .badge-local { background: #F7F8F3; color: #555; border: 0.5px solid #ccc; }
+  .badge-both { background: #F7F8F3; color: #444; border: 0.5px solid #ccc; }
+
+  .product-name { font-weight: 600; }
+  .footer { margin-top: 3rem; font-size: 11px; color: #bbb; text-align: right; }
+</style>
+</head>
+<body>
+<div class="page">
+  <span class="page-icon">🤖</span>
+  <h1 class="page-title">How to Build an AI Agent</h1>
+  <p class="page-sub">Good Plans NYC · Reference Guide · March 2026</p>
+  <hr class="divider">
+  <div class="section-label">Architecture — 8-step framework</div>
+
+  <div class="flow-grid flow-grid-3">
+    <div class="step-card">
+      <div class="step-num">Step 1</div>
+      <div class="step-title">Define Purpose & Scope</div>
+      <div class="step-items">
+        <span class="step-item">Use case</span><span class="step-item">User needs</span><span class="step-item">Success criteria</span><span class="step-item">Constraints</span>
+      </div>
+    </div>
+    <div class="step-card">
+      <div class="step-num">Step 2</div>
+      <div class="step-title">System Prompt Design</div>
+      <div class="step-items">
+        <span class="step-item">Goals</span><span class="step-item">Role / Persona</span><span class="step-item">Instructions</span><span class="step-item">Guardrails</span>
+      </div>
+    </div>
+    <div class="step-card">
+      <div class="step-num">Step 3</div>
+      <div class="step-title">Choose LLM</div>
+      <div class="step-items">
+        <span class="step-item">Base model</span><span class="step-item">Parameters</span><span class="step-item">Context window</span><span class="step-item">Cost / latency</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="flow-grid flow-grid-2">
+    <div class="step-card">
+      <div class="step-num">Step 5</div>
+      <div class="step-title">Memory Systems</div>
+      <div class="step-items">
+        <span class="step-item">Episodic</span><span class="step-item">Working memory</span><span class="step-item">Vector DB</span><span class="step-item">SQL / structured</span><span class="step-item">File storage</span>
+      </div>
+    </div>
+    <div class="step-card">
+      <div class="step-num">Step 4</div>
+      <div class="step-title">Tools & Integrations</div>
+      <div class="step-items">
+        <span class="step-item">Simple (local)</span><span class="step-item">API (web, apps)</span><span class="step-item">MCP server</span><span class="step-item">AI agent as a tool</span><span class="step-item">Custom functions</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="flow-grid flow-grid-3">
+    <div class="step-card">
+      <div class="step-num">Step 6</div>
+      <div class="step-title">Orchestration</div>
+      <div class="step-items">
+        <span class="step-item">Routes / workflows</span><span class="step-item">Triggers</span><span class="step-item">Parameters</span><span class="step-item">Message queues</span><span class="step-item">Agent2Agent</span><span class="step-item">Error handling</span>
+      </div>
+    </div>
+    <div class="step-card">
+      <div class="step-num">Step 7</div>
+      <div class="step-title">User Interface</div>
+      <div class="step-items">
+        <span class="step-item">Chat interface</span><span class="step-item">Web app</span><span class="step-item">API endpoint</span><span class="step-item">Slack / Discord bot</span>
+      </div>
+    </div>
+    <div class="step-card">
+      <div class="step-num">Step 8</div>
+      <div class="step-title">Testing & Evals</div>
+      <div class="step-items">
+        <span class="step-item">Unit tests</span><span class="step-item">Latency testing</span><span class="step-item">Quality metrics</span><span class="step-item">Iterate & improve</span>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+  <div class="table-section">
+    <div class="section-label">Product landscape</div>
+    <table>
+      <thead>
+        <tr>
+          <th style="width:28px;"></th>
+          <th>Product / Platform</th>
+          <th>LLM</th>
+          <th>Deployment</th>
+          <th>Key Features</th>
+          <th>Best For</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="cat-cell" rowspan="3"><div class="cat-label">Consumer AI Agents</div></td>
+          <td class="product-name">ChatGPT (OpenAI)</td><td>GPT-5</td><td><span class="badge badge-cloud">Cloud</span></td><td>Custom GPTs, voice, vision, memory, DALL-E</td><td>General purpose, creative work</td>
+        </tr>
+        <tr>
+          <td class="product-name">Claude (Anthropic)</td><td>Claude 4.5</td><td><span class="badge badge-cloud">Cloud</span></td><td>Projects, artifacts, analysis, 200K context</td><td>Research, writing, coding</td>
+        </tr>
+        <tr>
+          <td class="product-name">Perplexity</td><td>Multiple</td><td><span class="badge badge-cloud">Cloud</span></td><td>Search-first, citations, Pro search</td><td>Research, fact-checking</td>
+        </tr>
+        <tr>
+          <td class="cat-cell" rowspan="3"><div class="cat-label">Agentic Coding</div></td>
+          <td class="product-name">Cursor</td><td>Claude, GPT</td><td><span class="badge badge-both">Local + Cloud</span></td><td>Full IDE, composer mode, multi-file editing</td><td>Professional devs, complex projects</td>
+        </tr>
+        <tr>
+          <td class="product-name">Windsurf (Codeium)</td><td>Cascade</td><td><span class="badge badge-both">Local + Cloud</span></td><td>Flows, agentic editing, codebase awareness</td><td>Team dev, large codebases</td>
+        </tr>
+        <tr>
+          <td class="product-name">Claude Code (Anthropic)</td><td>Claude 4.5</td><td><span class="badge badge-local">Local</span></td><td>Terminal-native, git integration, autonomous coding</td><td>CLI workflows, automation scripts</td>
+        </tr>
+        <tr>
+          <td class="cat-cell" rowspan="3"><div class="cat-label">No-Code Builders</div></td>
+          <td class="product-name">Lindy</td><td>GPT-5</td><td><span class="badge badge-cloud">Cloud</span></td><td>3000+ integrations, natural language workflows</td><td>Business automation, non-technical teams</td>
+        </tr>
+        <tr>
+          <td class="product-name">Relay.app</td><td>GPT-5</td><td><span class="badge badge-cloud">Cloud</span></td><td>Human-in-loop, Gmail/Slack native</td><td>Team workflows, approvals needed</td>
+        </tr>
+        <tr>
+          <td class="product-name">n8n</td><td>Multiple</td><td><span class="badge badge-both">Cloud / Both</span></td><td>400+ integrations, self-host, open source</td><td>Technical teams, data privacy needs</td>
+        </tr>
+        <tr>
+          <td class="cat-cell" rowspan="3"><div class="cat-label">Dev Frameworks</div></td>
+          <td class="product-name">LangGraph</td><td>Any</td><td><span class="badge badge-both">Local / Cloud</span></td><td>Graph-based flows, state management, cycles</td><td>Complex workflows, production apps</td>
+        </tr>
+        <tr>
+          <td class="product-name">CrewAI</td><td>Any</td><td><span class="badge badge-both">Local / Cloud</span></td><td>Role-based, 40+ integrations, task delegation</td><td>Multi-agent teams, autonomous systems</td>
+        </tr>
+        <tr>
+          <td class="product-name">LlamaIndex</td><td>Any</td><td><span class="badge badge-both">Local / Cloud</span></td><td>RAG-first, data connectors, query engines</td><td>Knowledge-intensive apps, document Q&A</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="footer">Good Plans NYC Corp. · goodplansnyc.com</div>
+</div>
+</body>
+</html>
